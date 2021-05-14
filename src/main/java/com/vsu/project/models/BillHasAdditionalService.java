@@ -12,5 +12,5 @@ import lombok.Setter;
 public class BillHasAdditionalService {
     private Long id;
     private Bill bill;
-    private AdditionalServices additionalService;
+    private Offers additionalService;
 }

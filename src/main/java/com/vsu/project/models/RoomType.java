@@ -1,6 +1,6 @@
 package com.vsu.project.models;
 
-enum RoomType {
+public enum RoomType {
     LUXURY,
     SEMILUX,
     BUSINESS,

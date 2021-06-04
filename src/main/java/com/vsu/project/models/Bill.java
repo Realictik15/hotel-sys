@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,6 +26,12 @@ public class Bill {
     @JoinColumn(name = "IDBID", nullable = false)
     private Bid bid;
 
+    @Column(name = "PRICE")
     private Long price;
+
+    @Column(name = "INFORMATION")
     private String info;
+
+    @OneToMany(mappedBy = "bill", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<BillHasAdditionalService> billHasAdditionalServices = new ArrayList<>();
 }

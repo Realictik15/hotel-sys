@@ -25,6 +25,9 @@ public class Bid {
     @SequenceGenerator(sequenceName = "SEQUENCE_OF_IDBID", allocationSize = 1, name = "BID_SEQ")
     @Column(name = "IDBID")
     private Long id;
+
+    @Column(name = "BIDTYPE")
+    @Enumerated(EnumType.STRING)
     private BidType type;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -44,7 +47,7 @@ public class Bid {
     @Column(name = "INFORMATION")
     private String information;
 
-    @OneToMany(mappedBy = "Bid", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    @OneToMany(mappedBy = "bid", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<Bill> bills = new ArrayList<>();
 
 }

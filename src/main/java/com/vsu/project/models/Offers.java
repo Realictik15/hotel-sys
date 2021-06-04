@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,4 +27,6 @@ public class Offers {
     private String information;
     @Column(name = "PRICE")
     public Integer price;
+    @OneToMany(mappedBy = "additionalService", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<BillHasAdditionalService> billHasAdditionalServices = new ArrayList<>();
 }

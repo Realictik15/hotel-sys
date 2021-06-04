@@ -9,11 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <java.v>11</java.v>
-        <lombok.version>1.18.12</lombok.version>
+<!--        <lombok.version>1.18.12</lombok.version>-->
         <oracle.path>C:/Users/Artem/IdeaProjects/EnterpriceJ/.idea/lib</oracle.path>
         <spring.version>2.2.4.RELEASE</spring.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-
+        <org.projectlombok.version>1.18.8</org.projectlombok.version>
     </properties>
 
     <dependencies>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <version>${org.projectlombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -59,12 +59,54 @@
             <version>2.5</version>
         </dependency>
         <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.5</version>
         </dependency>
     </dependencies>
 
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.8.1</version>-->
+<!--                <configuration>-->
+<!--                    <source>{$java.v>}</source>-->
+<!--                    <target>{$java.v>}</target>-->
+<!--                    <annotationProcessorPaths>-->
+<!--                        <path>-->
+<!--                            <groupId>org.projectlombok</groupId>-->
+<!--                            <artifactId>lombok</artifactId>-->
+<!--                            <version>${lombok.version}</version>-->
+<!--                        </path>-->
+<!--                        &lt;!&ndash; This is needed when using Lombok 1.18.16 and above &ndash;&gt;-->
+<!--                        <path>-->
+<!--                            <groupId>org.projectlombok</groupId>-->
+<!--                            <artifactId>lombok-mapstruct-binding</artifactId>-->
+<!--                            <version>0.2.0</version>-->
+<!--                        </path>-->
+<!--                        &lt;!&ndash; Mapstruct should follow the lombok path(s) &ndash;&gt;-->
+<!--                        <path>-->
+<!--                            <groupId>org.mapstruct</groupId>-->
+<!--                            <artifactId>mapstruct-processor</artifactId>-->
+<!--                            <version>${org.mapstruct.version}</version>-->
+<!--                        </path>-->
+<!--                    </annotationProcessorPaths>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+
+<!--    </build>-->
     <build>
         <plugins>
 
@@ -79,13 +121,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>{$java.v>}</source>
-                    <target>{$java.v>}</target>
+                    <source>11</source>
+                    <target>11</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
+                            <version>${org.projectlombok.version}</version>
                         </path>
                         <!-- This is needed when using Lombok 1.18.16 and above -->
                         <path>
@@ -105,4 +147,5 @@
         </plugins>
 
     </build>
+
 </project>
